@@ -61,4 +61,11 @@ dependencies {
 
     // JSON serialization library, works with the Kotlin serialization plugin
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+
+    // Haze for glassmorphism effect
+    dependencies {
+        implementation("dev.chrisbanes.haze:haze:2.0.0-alpha03")
+        implementation("dev.chrisbanes.haze:haze-blur:2.0.0-alpha03")
+        implementation("dev.chrisbanes.haze:haze-blur-materials:2.0.0-alpha03")
+    }
 }

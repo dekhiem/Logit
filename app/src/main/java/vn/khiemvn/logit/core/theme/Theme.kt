@@ -57,19 +57,6 @@ private val DarkColorScheme = darkColorScheme(
     outlineVariant = NearBlack,
 )
 
-@Composable
-fun LogitTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
-) {
-    val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
-
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
-}
 
 @Composable
 fun LogitTheme(

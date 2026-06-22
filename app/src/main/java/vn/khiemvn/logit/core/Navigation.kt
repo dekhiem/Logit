@@ -25,6 +25,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import dev.chrisbanes.haze.HazeState
+import dev.chrisbanes.haze.hazeSource
 import vn.khiemvn.logit.features.account.ui.accountGraph
 import kotlin.math.roundToInt
 
@@ -32,12 +34,14 @@ import kotlin.math.roundToInt
 fun LogitNavHost(
     navController: NavHostController,
     innerPadding: PaddingValues,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    hazeState: HazeState
 ) {
     NavHost(
         navController = navController,
         startDestination = HomeDestination,
-        modifier = modifier.padding(innerPadding)
+        // set this as HazeSource
+        modifier = modifier.padding(innerPadding).hazeSource(state = hazeState)
     ) {
         composable<HomeDestination> {
             Text("Home Screen")
