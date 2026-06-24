@@ -3,18 +3,16 @@ package vn.khiemvn.logit.core
 import kotlinx.serialization.Serializable
 
 @Serializable
-object HomeDestination
+object ViewDestination
 
 @Serializable
-object AccountDestination
+object AssetsDestination
 
 @Serializable
-object CreateDestination
+object LogDestination
 
 @Serializable
-object ReportDestination
+object ChartDestination
 
 @Serializable
-object SettingsDestination
-@Serializable
-data class TransactionDestination(val accountId: String)
+object MiscDestination
