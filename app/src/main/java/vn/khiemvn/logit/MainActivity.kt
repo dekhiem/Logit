@@ -13,6 +13,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -63,11 +64,13 @@ fun LogitApp() {
         bottomBar = {
             NavigationBar(
                 // register as HazeEffect with defined style
-                modifier = Modifier.height(72.dp).hazeEffect(state=hazeState) {
-                    blurEffect {
-                        style = hazeStyle
-                    }
-                },
+                modifier = Modifier
+                    .height(72.dp)
+                    .hazeEffect(state = hazeState) {
+                        blurEffect {
+                            style = hazeStyle
+                        }
+                    },
                 // let the blur go through
                 containerColor = Color.Transparent
             ) {
@@ -112,6 +115,15 @@ fun LogitApp() {
             }
         }
     ) { innerPadding ->
+        // nagivate to Log screen on start-up
+        LaunchedEffect(Unit) {
+            navController.navigate(LogDestination) {
+                popUpTo(ViewDestination) {
+                    inclusive = false
+                }
+                launchSingleTop = true
+            }
+        }
         LogitNavHost(
             navController = navController,
             innerPadding = innerPadding,

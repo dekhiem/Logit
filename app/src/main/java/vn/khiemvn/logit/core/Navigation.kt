@@ -10,6 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import dev.chrisbanes.haze.HazeState
 import dev.chrisbanes.haze.hazeSource
+import vn.khiemvn.logit.features.log.logScreen
 
 @Composable
 fun LogitNavHost(
@@ -20,7 +21,7 @@ fun LogitNavHost(
 ) {
     NavHost(
         navController = navController,
-        startDestination = LogDestination,
+        startDestination = ViewDestination,
         // set this as HazeSource
         modifier = modifier
             .padding(innerPadding)
@@ -32,9 +33,7 @@ fun LogitNavHost(
         composable<AssetsDestination> {
             Text("Assets Screen")
         }
-        composable<LogDestination> {
-            Text("Create Screen")
-        }
+        logScreen()
         composable<ChartDestination> {
             Text("Report Screen")
         }
